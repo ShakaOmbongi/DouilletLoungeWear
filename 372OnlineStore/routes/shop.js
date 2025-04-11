@@ -13,10 +13,10 @@ router.get('/products', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'productList.html'));
 });
 
-// Fetch all products (JSON response)
+// Fetch all products
 router.get('/api/products', productController.getProducts);
 
-// Fetch a single product by ID (JSON response)
+// Fetch a single product by ID 
 router.get('/api/product/:id', productController.getProduct);
 
 // Serve product details page

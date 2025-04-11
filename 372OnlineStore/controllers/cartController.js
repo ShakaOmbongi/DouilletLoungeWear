@@ -21,7 +21,7 @@ exports.getCartItems = (req, res) => {
   });
 };
 
-// ✅ Add product to cart (with hardcoded userId for now)
+//  Add product to cart (with hardcoded userId for now)
 exports.addToCart = (req, res) => {
   const userId = 1; // <-- TEMP FIX while login isn't wired up to frontend
   const { productId, quantity } = req.body;

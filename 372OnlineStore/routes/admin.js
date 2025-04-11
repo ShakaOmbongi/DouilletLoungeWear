@@ -9,7 +9,7 @@ router.get('/products', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'admin-products.html'));
 });
 
-// Fetch all products for admin (JSON response)
+// Fetch all products for admin 
 router.get('/api/products', productController.getAdminProducts);
 
 // Handle product creation

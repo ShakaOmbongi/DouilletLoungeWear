@@ -40,7 +40,7 @@ app.get('/users/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
-// Admin Pages (Not for Public View)
+// Admin Pages 
 app.get('/admin/upload', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'admin-upload.html'));
 });

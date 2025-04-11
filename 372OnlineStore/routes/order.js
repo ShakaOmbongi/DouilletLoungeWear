@@ -8,10 +8,10 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'order-history.html'));
 });
 
-// Fetch all orders (JSON response)
+// Fetch all orders 
 router.get('/api', orderController.getOrders);
 
-// Fetch a single order by ID (JSON response)
+// Fetch a single order by ID 
 router.get('/api/:id', orderController.getOrder);
 
 // Create a new order
