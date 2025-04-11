@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+  Name: shaka ombongi
+  Date: 2025-02-28
+  CSC 372-01
+  Admin upload  Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Bulk Upload</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin/upload">Bulk Upload</a></li>
+        <li><a href="/admin/products">Product Listing</a></li>
+        <li><a href="/admin/edit">Edit Product </a></li>
+        <li><a href="#">Sign Out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bulk Upload Products</h1>
+    <form>
+      <label for="file-upload">Select file to upload (JSON format):</label>
+      <input type="file" id="file-upload" name="bulkFile" accept=".json,.csv,.txt">
+      <button type="submit">Upload</button>
+    </form>
+
+    <section class="upload-instructions">
+      <h2>Example File Format (JSON):</h2>
+      <pre>{
+  "products": [
+    {
+      "id": 1,
+      "name": "Cozy Sweatpants",
+      "description": "Perfect for lounging",
+      "category": "Apparel",
+      "imagePath": "images/sweatpants.jpg",
+      "price": 39.99
+    }
+  ]
+}</pre>
+      <p>We accept JSON, CSV, or TXT. Please ensure valid format.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Admin Panel</p>
+  </footer>
+</body>
+</html>

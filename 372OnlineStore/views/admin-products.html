@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  Name: shaka ombongi
+  Date: 2025-02-28
+  CSC 372-01
+  Admin Product Listing Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Manage Products</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/admin/upload">Bulk Upload</a></li>
+        <li><a href="/admin/products">Product Listing</a></li>
+        <li><a href="/admin/edit">Edit Product </a></li>
+        <li><a href="#">Sign Out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Admin Product Listing</h1>
+    <button class="btn" onclick="location.href='/admin/edit'">Add New Product</button>
+    <table border="1" width="100%" cellpadding="10">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Image Path</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="product-list">
+        <!-- Products will be dynamically added here -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Online Store Admin</p>
+  </footer>
+
+  <script>
+    // Fetch and display products dynamically
+    fetch('/admin/products')
+      .then(response => response.json())
+      .then(products => {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = "";
+        products.forEach(product => {
+          productList.innerHTML += `
+            <tr>
+              <td>${product.id}</td>
+              <td>${product.name}</td>
+              <td>${product.description}</td>
+              <td>${product.category}</td>
+              <td><img src="${product.imageUrl}" alt="${product.name}" width="50"></td>
+              <td>$${product.price.toFixed(2)}</td>
+              <td>
+                <a href="/admin/edit?id=${product.id}">Edit</a>
+                <button class="btn delete-btn" data-id="${product.id}">Delete</button>
+              </td>
+            </tr>
+          `;
+        });
+
+        // Add event listeners to delete buttons
+        document.querySelectorAll('.delete-btn').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const productId = e.target.getAttribute('data-id');
+            fetch(`/admin/delete/${productId}`, { method: 'DELETE' })
+              .then(() => location.reload());
+          });
+        });
+      })
+      .catch(error => console.error("Error fetching products:", error));
+  </script>
+</body>
+</html>

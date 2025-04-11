@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+  Name: shaka ombongi
+  Date: 2025-02-28
+  CSC 372-01
+ product details Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Douillet Lounge Wear - Product Details</title>
+  <!-- Bootstrap / MDB UI Kit -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <!-- Header with Nav -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-6 mb-4">
+          <img id="product-image" class="img-fluid rounded" alt="Product Image">
+        </div>
+        <!-- Product Details -->
+        <div class="col-md-6">
+          <h2 id="product-name" class="mb-3"></h2>
+          <p id="product-price" class="h4 text-primary mb-4"></p>
+          <p id="product-description"></p>
+          <ul class="list-unstyled">
+            <li><strong>Material:</strong> <span id="product-material"></span></li>
+            <li><strong>Available Sizes:</strong> S, M, L, XL</li>
+          </ul>
+          <!-- Updated button with specific class -->
+          <button type="button" class="btn btn-primary btn-lg mt-3 btn-add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="../assets/js/productDetails.js"></script>
+</body>
+</html>

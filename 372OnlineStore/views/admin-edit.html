@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 
+  Name: Shaka Ombongi
+  Date: 2025-02-28
+  CSC 372-01
+  Admin Product Edit Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Product - Admin</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/admin/upload">Bulk Upload</a></li>
+        <li><a href="/admin/products">Product Listing</a></li>
+        <li><a href="/admin/edit">Edit Product </a></li>
+        <li><a href="#">Sign Out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Edit Product</h1>
+    
+    <form id="editProductForm">
+      <label for="productId">Product ID:</label>
+      <input type="text" id="productId" name="productId" readonly />
+
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" required />
+
+      <label for="productDescription">Description:</label>
+      <textarea id="productDescription" name="productDescription" required></textarea>
+
+      <label for="productCategory">Category:</label>
+      <input type="text" id="productCategory" name="productCategory" required />
+
+      <label for="productPrice">Price:</label>
+      <input type="number" id="productPrice" name="productPrice" step="0.01" required />
+
+      <label for="productImage">Image URL:</label>
+      <input type="text" id="productImage" name="productImage" required />
+
+      <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="/admin/products">Back to Products</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Douillet Lounge Wear Admin</p>
+  </footer>
+
+  <script src="/assets/js/adminEdit.js"></script>
+</body>
+</html>

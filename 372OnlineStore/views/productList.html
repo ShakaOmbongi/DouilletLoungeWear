@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  Name: Shaka Ombongi
+  Date: 2025-02-28
+  CSC 372-01
+  Product List Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Douillet Lounge Wear - Products</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <!-- Header with Nav -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/products">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Our Products</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <!-- Product 1: Sweatpants -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="/assets/images/sweatpants.jpeg" class="card-img-top" alt="Cozy Sweatpants">
+            <div class="card-body">
+              <h5 class="card-title">Cozy Sweatpants</h5>
+              <p class="card-text">$39.99</p>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="productId" value="1">
+                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Hoodie -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="/assets/images/hoodie.jpeg" class="card-img-top" alt="Relaxed Hoodie">
+            <div class="card-body">
+              <h5 class="card-title">Relaxed Hoodie</h5>
+              <p class="card-text">$49.99</p>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="productId" value="2">
+                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: T-Shirt -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="/assets/images/t-shirt.jpeg" class="card-img-top" alt="Comfortable T-Shirt">
+            <div class="card-body">
+              <h5 class="card-title">Comfortable T-Shirt</h5>
+              <p class="card-text">$29.99</p>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="productId" value="3">
+                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4: Lounge Pants -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="/assets/images/pants.jpeg" class="card-img-top" alt="Soft Lounge Pants">
+            <div class="card-body">
+              <h5 class="card-title">Soft Lounge Pants</h5>
+              <p class="card-text">$44.99</p>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="productId" value="4">
+                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/productList.js"></script>
+</body>
+</html>
