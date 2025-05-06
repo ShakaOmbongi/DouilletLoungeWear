@@ -1,5 +1,6 @@
 const path = require('path');
 const Order = require('../models/Order');
+const Cart = require('../models/Cart');
 
 exports.getOrders = (req, res) => {
   Order.getAll((err, orders) => {
@@ -18,9 +19,18 @@ exports.getOrder = (req, res) => {
 
 exports.createOrder = (req, res) => {
   const { userId, totalAmount } = req.body;
+
   Order.create({ userId, totalAmount }, (err, result) => {
     if (err) return res.status(500).send("Error creating order.");
     console.log('New order created:', result.id);
-    res.redirect('/orders');
+
+    Cart.clearForUser(userId, (err) => {
+      if (err) {
+        console.error("Failed to clear cart:", err.message);
+        return res.status(500).send("Order placed, but cart not cleared.");
+      }
+
+      res.redirect('/orders/success');
+    });
   });
 };

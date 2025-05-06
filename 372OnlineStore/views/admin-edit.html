@@ -2,7 +2,6 @@
 <!-- 
   Name: Shaka Ombongi
   Date: 2025-02-28
-  CSC 372-01
   Admin Product Edit Page
 -->
 <html lang="en">
@@ -10,21 +9,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Edit Product - Admin</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
 </head>
 <body>
-  <header>
+  <!-- Admin Nav -->
+  <header class="admin-nav">
     <nav>
       <ul>
         <li><a href="/admin/upload">Bulk Upload</a></li>
         <li><a href="/admin/products">Product Listing</a></li>
-        <li><a href="/admin/edit">Edit Product </a></li>
-        <li><a href="#">Sign Out</a></li>
+        <li><a href="/admin/edit" class="active">Edit Product</a></li>
+        <li><a href="#" id="sign-out">Sign Out</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
+  <main>
     <h1>Edit Product</h1>
     
     <form id="editProductForm">
@@ -49,7 +49,9 @@
       <button type="submit">Save Changes</button>
     </form>
 
-    <a href="/admin/products">Back to Products</a>
+    <div class="mt-3">
+      <a href="/admin/products" class="btn">← Back to Products</a>
+    </div>
   </main>
 
   <footer>
@@ -57,5 +59,12 @@
   </footer>
 
   <script src="/assets/js/adminEdit.js"></script>
+  <script src="/assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('sign-out').addEventListener('click', function () {
+      window.location.href = "/admin/login";
+    });
+  </script>
 </body>
 </html>

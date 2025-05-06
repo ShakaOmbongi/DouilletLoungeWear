@@ -18,7 +18,11 @@ const Cart = {
 
   removeItem: (cartId, callback) => {
     db.run('DELETE FROM cart WHERE id = ?', [cartId], callback);
+  },
+  clearForUser: (userId, callback) => {
+    db.run('DELETE FROM cart WHERE user_id = ?', [userId], callback);
   }
+  
 };
 
 module.exports = Cart;

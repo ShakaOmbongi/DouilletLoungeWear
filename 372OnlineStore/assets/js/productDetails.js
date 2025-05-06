@@ -23,5 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("cart", JSON.stringify(cart));
         alert(`${product.name} added to cart!`);
+
+        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        const countElement = document.getElementById("cart-count");
+        if (countElement) {
+            countElement.textContent = cartCount;
+        }
     });
 });

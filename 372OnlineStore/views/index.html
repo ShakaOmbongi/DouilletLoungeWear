@@ -32,9 +32,12 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span>
+            </a></li>
             <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
             <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+            <li><a href="#" id="sign-out">Sign Out</a></li>
+
             
           </ul>
         </div>
@@ -54,7 +57,7 @@
           Enjoy premium fabrics and modern designs made to help you feel your best. 
         </p>
         <a href="/products" class="btn btn-primary btn-lg mb-3">Shop Now</a>
-        <a href="/admin/products" class="btn btn-primary btn-lg mb-3">Admin?</a>
+        <a href="/admin/login" class="btn btn-primary btn-lg mb-3">Admin?</a>
       </div>
     </section>
 
@@ -87,6 +90,8 @@
 
   <!-- map + JS: function.js must come BEFORE maps API script -->
   <script src="../assets/js/function.js"></script>
+  <script src="/assets/js/main.js"></script>
+
 
   <!--  Only ONE Google Maps API script -->
   <script async defer

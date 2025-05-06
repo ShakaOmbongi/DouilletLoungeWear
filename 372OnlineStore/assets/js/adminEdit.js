@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const productId = new URLSearchParams(window.location.search).get("id");
     
     if (productId) {
-      fetch(`/api/products/${productId}`)
-        .then(response => response.json())
+      fetch(`/admin/api/products/${productId}`)
+      .then(response => response.json())
         .then(product => {
           document.getElementById("productId").value = product.id;
           document.getElementById("productName").value = product.name;
@@ -27,11 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
         image: document.getElementById("productImage").value
       };
   
-      fetch(`/api/products/${updatedProduct.id}`, {
-        method: "PUT",
+      fetch('/admin/edit-product', {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedProduct)
       })
+      
       .then(response => {
         if (response.ok) {
           alert("Product updated successfully!");

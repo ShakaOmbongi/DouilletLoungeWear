@@ -27,18 +27,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/products">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+            <li><a href="#" id="sign-out">Sign Out</a></li>
+
           </ul>
         </div>
       </div>
@@ -78,5 +74,7 @@
 
   <!-- Custom JS -->
   <script src="../assets/js/productDetails.js"></script>
+  <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

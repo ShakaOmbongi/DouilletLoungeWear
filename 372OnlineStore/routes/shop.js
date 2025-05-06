@@ -19,6 +19,8 @@ router.get('/api/products', productController.getProducts);
 // Fetch a single product by ID 
 router.get('/api/product/:id', productController.getProduct);
 
+router.get('/api/search', productController.searchProducts);
+
 // Serve product details page
 router.get('/product/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'views', 'productDetails.html'));

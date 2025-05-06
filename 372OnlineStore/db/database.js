@@ -12,7 +12,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
   } else {
     console.log('Connected to SQLite at', dbPath);
 
-    // 🔍 List all tables in the database (for verification)
+    //  List all tables in the database (for verification)
     db.all('SELECT name FROM sqlite_master WHERE type="table"', (err, rows) => {
       if (err) {
         console.error(" Failed to read tables:", err.message);

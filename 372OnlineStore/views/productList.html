@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-  Name: Shaka Ombongi
-  Date: 2025-02-28
-  CSC 372-01
-  Product List Page
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,7 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <!-- Header with Nav -->
+  <!-- Header -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -27,9 +21,11 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link active" href="/products">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span></a></li>
             <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
             <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+            <li><a href="#" id="sign-out">Sign Out</a></li>
+
           </ul>
         </div>
       </div>
@@ -42,66 +38,106 @@
       <h2 class="mb-4 text-center">Our Products</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <!-- Product 1: Sweatpants -->
+        <!-- Product 0 -->
         <div class="col">
           <div class="card h-100 text-center">
             <img src="/assets/images/sweatpants.jpeg" class="card-img-top" alt="Cozy Sweatpants">
             <div class="card-body">
               <h5 class="card-title">Cozy Sweatpants</h5>
               <p class="card-text">$39.99</p>
-              <form action="/cart/add" method="POST">
-                <input type="hidden" name="productId" value="1">
-                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-              </form>
+              <button class="btn btn-outline-primary mb-2 view-product"
+                      data-name="Cozy Sweatpants"
+                      data-price="39.99"
+                      data-image="/assets/images/sweatpants.jpeg"
+                      data-description="Perfect for lounging"
+                      data-material="Cotton">
+                View
+              </button>
+              <button class="btn btn-success add-to-cart"
+                      data-id="0"
+                      data-name="Cozy Sweatpants"
+                      data-price="39.99"
+                      data-image="/assets/images/sweatpants.jpeg">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Product 2: Hoodie -->
+        <!-- Product 1 -->
         <div class="col">
           <div class="card h-100 text-center">
             <img src="/assets/images/hoodie.jpeg" class="card-img-top" alt="Relaxed Hoodie">
             <div class="card-body">
               <h5 class="card-title">Relaxed Hoodie</h5>
               <p class="card-text">$49.99</p>
-              <form action="/cart/add" method="POST">
-                <input type="hidden" name="productId" value="2">
-                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-              </form>
+              <button class="btn btn-outline-primary mb-2 view-product"
+                      data-name="Relaxed Hoodie"
+                      data-price="49.99"
+                      data-image="/assets/images/hoodie.jpeg"
+                      data-description="Warm and cozy"
+                      data-material="Fleece">
+                View
+              </button>
+              <button class="btn btn-success add-to-cart"
+                      data-id="1"
+                      data-name="Relaxed Hoodie"
+                      data-price="49.99"
+                      data-image="/assets/images/hoodie.jpeg">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Product 3: T-Shirt -->
+        <!-- Product 2 -->
         <div class="col">
           <div class="card h-100 text-center">
             <img src="/assets/images/t-shirt.jpeg" class="card-img-top" alt="Comfortable T-Shirt">
             <div class="card-body">
               <h5 class="card-title">Comfortable T-Shirt</h5>
               <p class="card-text">$29.99</p>
-              <form action="/cart/add" method="POST">
-                <input type="hidden" name="productId" value="3">
-                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-              </form>
+              <button class="btn btn-outline-primary mb-2 view-product"
+                      data-name="Comfortable T-Shirt"
+                      data-price="29.99"
+                      data-image="/assets/images/t-shirt.jpeg"
+                      data-description="Lightweight and breathable"
+                      data-material="Cotton">
+                View
+              </button>
+              <button class="btn btn-success add-to-cart"
+                      data-id="2"
+                      data-name="Comfortable T-Shirt"
+                      data-price="29.99"
+                      data-image="/assets/images/t-shirt.jpeg">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Product 4: Lounge Pants -->
+        <!-- Product 3 -->
         <div class="col">
           <div class="card h-100 text-center">
             <img src="/assets/images/pants.jpeg" class="card-img-top" alt="Soft Lounge Pants">
             <div class="card-body">
               <h5 class="card-title">Soft Lounge Pants</h5>
               <p class="card-text">$44.99</p>
-              <form action="/cart/add" method="POST">
-                <input type="hidden" name="productId" value="4">
-                <input type="number" name="quantity" value="1" min="1" class="form-control mb-2">
-                <button type="submit" class="btn btn-success">Add to Cart</button>
-              </form>
+              <button class="btn btn-outline-primary mb-2 view-product"
+                      data-name="Soft Lounge Pants"
+                      data-price="44.99"
+                      data-image="/assets/images/pants.jpeg"
+                      data-description="Relaxation-ready pants"
+                      data-material="Modal">
+                View
+              </button>
+              <button class="btn btn-success add-to-cart"
+                      data-id="3"
+                      data-name="Soft Lounge Pants"
+                      data-price="44.99"
+                      data-image="/assets/images/pants.jpeg">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
@@ -116,7 +152,59 @@
       <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
     </div>
   </footer>
+  <script src="/assets/js/main.js"></script>
 
-  <script src="../assets/js/productList.js"></script>
+  <!-- Product List JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cartKey = "cart";
+
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const badge = document.getElementById("cart-count");
+        if (badge) badge.textContent = count;
+      }
+
+      // Handle "View" button
+      document.querySelectorAll(".view-product").forEach(button => {
+        button.addEventListener("click", function () {
+          const product = {
+            name: this.dataset.name,
+            price: parseFloat(this.dataset.price),
+            image: this.dataset.image,
+            description: this.dataset.description,
+            material: this.dataset.material
+          };
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          window.location.href = "/products/details";
+        });
+      });
+
+      // Handle "Add to Cart" button
+      document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function () {
+          const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+          const id = this.dataset.id;
+          const name = this.dataset.name;
+          const price = parseFloat(this.dataset.price);
+          const image = this.dataset.image;
+
+          const existing = cart.find(item => item.id == id);
+          if (existing) {
+            existing.quantity += 1;
+          } else {
+            cart.push({ id, name, price, image, quantity: 1 });
+          }
+
+          localStorage.setItem(cartKey, JSON.stringify(cart));
+          updateCartCount();
+          alert(`${name} added to cart!`);
+        });
+      });
+
+      updateCartCount(); // Set initial count on load
+    });
+  </script>
 </body>
 </html>

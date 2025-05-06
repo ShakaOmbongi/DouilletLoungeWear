@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <!--
-  Name: shaka ombongi
+  Name: Shaka Ombongi
   Date: 2025-02-28
-  CSC 372-01
- product edit Page
+  Admin Product Edit Page
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Admin - Edit Product</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
 </head>
 <body>
-  <header>
-    <nav class="admin-nav">
+  <!-- Admin Nav -->
+  <header class="admin-nav">
+    <nav>
       <ul>
         <li><a href="/admin/upload">Bulk Upload</a></li>
         <li><a href="/admin/products">Product Listing</a></li>
-        <li><a href="/admin/edit">Edit Product </a></li>
-        <li><a href="#">Sign Out</a></li>
+        <li><a href="/admin/edit" class="active">Edit Product</a></li>
+        <li><a href="#" id="sign-out">Sign Out</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <h1>Edit Product</h1>
-    <form>
-      <label>Product ID (not editable):</label>
-      <input type="text" value="1" readonly>
+    <form id="editProductForm" method="POST" action="/admin/edit-product">
+      <label for="productId">Product ID (not editable):</label>
+      <input type="text" id="productId" name="id" readonly value="1">
 
-      <label>Name:</label>
-      <input type="text" value="Cozy Sweatpants">
+      <label for="productName">Name:</label>
+      <input type="text" id="productName" name="name" value="Cozy Sweatpants">
 
-      <label>Description:</label>
-      <textarea>Perfect for lounging</textarea>
+      <label for="productDescription">Description:</label>
+      <textarea id="productDescription" name="description">Perfect for lounging</textarea>
 
-      <label>Category:</label>
-      <input type="text" value="Apparel">
+      <label for="productCategory">Category:</label>
+      <input type="text" id="productCategory" name="category" value="Apparel">
 
-      <label>Image Path:</label>
-      <input type="text" value="images/sweatpants.jpeg">
+      <label for="productImage">Image Path:</label>
+      <input type="text" id="productImage" name="imageUrl" value="images/sweatpants.jpeg">
 
-      <label>Price:</label>
-      <input type="number" step="0.01" value="39.99">
+      <label for="productPrice">Price:</label>
+      <input type="number" id="productPrice" name="price" step="0.01" value="39.99">
 
       <button type="submit">Save Changes</button>
     </form>
   </main>
 
   <footer>
-    <p>&copy; 2025 Admin Panel</p>
+    <p>&copy; 2025 Douillet Lounge Wear Admin</p>
   </footer>
+
+  <script>
+    document.getElementById('sign-out').addEventListener('click', function () {
+      window.location.href = "/admin/login";
+    });
+  </script>
 </body>
 </html>

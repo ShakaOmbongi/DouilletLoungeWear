@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <!--
-  Name: shaka ombongi
+  Name: Shaka Ombongi
   Date: 2025-02-28
-  CSC 372-01
-  Admin upload  Page
+  Admin Bulk Upload Page
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Admin - Bulk Upload</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
 </head>
 <body>
-  <header>
-    <nav class="admin-nav">
+  <!-- Admin Navbar -->
+  <header class="admin-nav">
+    <nav>
       <ul>
-        <li><a href="/admin/upload">Bulk Upload</a></li>
+        <li><a href="/admin/upload" class="active">Bulk Upload</a></li>
         <li><a href="/admin/products">Product Listing</a></li>
-        <li><a href="/admin/edit">Edit Product </a></li>
-        <li><a href="#">Sign Out</a></li>
+        <li><a href="/admin/edit">Edit Product</a></li>
+        <li><a href="#" id="sign-out">Sign Out</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <h1>Bulk Upload Products</h1>
-    <form>
-      <label for="file-upload">Select file to upload (JSON format):</label>
-      <input type="file" id="file-upload" name="bulkFile" accept=".json,.csv,.txt">
+
+    <form method="POST" action="/admin/upload" enctype="multipart/form-data">
+      <label for="file-upload">Select a JSON file to upload:</label>
+      <input type="file" id="file-upload" name="bulkFile" accept=".json" required>
       <button type="submit">Upload</button>
     </form>
 
     <section class="upload-instructions">
-      <h2>Example File Format (JSON):</h2>
+      <h2>Expected File Format (JSON)</h2>
       <pre>{
   "products": [
     {
-      "id": 1,
       "name": "Cozy Sweatpants",
       "description": "Perfect for lounging",
       "category": "Apparel",
-      "imagePath": "images/sweatpants.jpg",
+      "imageUrl": "images/sweatpants.jpg",
       "price": 39.99
     }
   ]
 }</pre>
-      <p>We accept JSON, CSV, or TXT. Please ensure valid format.</p>
+      <p>Please upload a valid <strong>.json</strong> file. Each product must include <code>name</code>, <code>description</code>, <code>category</code>, <code>imageUrl</code>, and <code>price</code>.</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Admin Panel</p>
+    <p>&copy; 2025 Douillet Lounge Wear Admin</p>
   </footer>
+
+  <script>
+    document.getElementById('sign-out').addEventListener('click', () => {
+      window.location.href = '/admin/login';
+    });
+  </script>
+  <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

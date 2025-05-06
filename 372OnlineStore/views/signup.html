@@ -13,26 +13,41 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/users/signup">Sign Up</a></li>
-          </ul>
-        </div>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav ms-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/products">Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary ms-1">0</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/login">Sign In</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/signup">Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="sign-out">Sign Out</a>
+    </li>
+  </ul>
       </div>
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="py-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 bg-light p-4 rounded shadow">
+          <div id="alert-box" class="alert d-none" role="alert"></div>
           <h3 class="text-center mb-4">Create an Account</h3>
           <form action="/users/create" method="POST">
             <div class="mb-3">
@@ -68,5 +83,17 @@
       <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("signup") === "fail") {
+      const alertBox = document.getElementById("alert-box");
+      alertBox.textContent = "Error creating account. Please try again.";
+      alertBox.classList.remove("d-none", "alert-success");
+      alertBox.classList.add("alert-danger");
+    }
+  </script>
+  <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

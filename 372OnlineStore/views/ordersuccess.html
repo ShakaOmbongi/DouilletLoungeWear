@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+  Name: shaka ombongi
+  Date: 2025-02-28
+  CSC 372-01
+  Order Success Page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Confirmation - Douillet Lounge Wear</title>
+  <!-- Bootstrap / MDB UI Kit -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <!-- Header with Nav -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span>
+                </a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+                <li><a href="#" id="sign-out">Sign Out</a></li>
+
+              </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-5">
+    <div class="container text-center">
+      <h1 class="text-success mb-4"> Order Placed Successfully!</h1>
+      <p class="lead">Thank you for shopping with Douillet Lounge Wear.</p>
+      <p>Your order has been received and is being processed.</p>
+      <a href="/products" class="btn btn-primary btn-lg mt-4">Continue Shopping</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

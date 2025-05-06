@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Douillet Lounge Wear</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a id="home-link" class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/login">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="sign-out">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Optional Main Content -->
+  <main class="container py-4">
+    <h1>Welcome!</h1>
+  </main>
+
+  <!-- Script to adjust home link based on user role -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const homeLink = document.getElementById("home-link");
+      try {
+        const res = await fetch("/users/session-info");
+        const data = await res.json();
+        if (data && data.user_type === "admin") {
+          homeLink.href = "/admin/products";
+        } else {
+          homeLink.href = "/";
+        }
+      } catch (err) {
+        console.warn("Defaulting home link to / due to session check error.");
+        homeLink.href = "/";
+      }
+    });
+  </script>
+
+</body>
+</html>

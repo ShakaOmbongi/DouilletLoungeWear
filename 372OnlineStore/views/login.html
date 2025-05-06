@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Douillet Lounge Wear - Sign In</title>
+  <title>Douillet Lounge Wear - Login</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <!-- Header -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">Douillet Lounge Wear</a>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-              <li class="nav-item"><a class="nav-link" href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
-              <li class="nav-item"><a class="nav-link active" href="/users/login">Sign In</a></li>
-              <li class="nav-item"><a class="nav-link" href="/users/signup">Sign Up</a></li>
-            </ul>
-          
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/cart">Cart <span id="cart-count" class="badge bg-primary">0</span></a></li>
+            <li class="nav-item"><a class="nav-link active" href="/users/login">Sign In</a></li>
+            <li><a href="#" id="sign-out">Sign Out</a></li>
+
+          </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="py-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 bg-light p-4 rounded shadow">
-          <h3 class="text-center mb-4">Sign In to Your Account</h3>
+          <div id="alert-box" class="alert d-none" role="alert"></div>
+          <h3 class="text-center mb-4">Sign In</h3>
           <form action="/users/login" method="POST">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
@@ -53,11 +49,36 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-dark text-white py-3 mt-5">
     <div class="container text-center">
       <p class="mb-0">&copy; 2025 Douillet Lounge Wear. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const alertBox = document.getElementById("alert-box");
+
+    if (params.get("signup") === "success") {
+      alertBox.textContent = "Account created successfully! Please log in.";
+      alertBox.classList.remove("d-none", "alert-danger");
+      alertBox.classList.add("alert-success");
+    }
+
+    if (params.get("error") === "invalid") {
+      alertBox.textContent = "Invalid email or password.";
+      alertBox.classList.remove("d-none", "alert-success");
+      alertBox.classList.add("alert-danger");
+    }
+      if (params.get("error") === "loginRequired") {
+  alertBox.textContent = "Please log in to complete your checkout.";
+  alertBox.classList.remove("d-none", "alert-success");
+  alertBox.classList.add("alert-warning");
+}
+
+    
+  </script>
+  <script src="/assets/js/main.js"></script>
+
 </body>
 </html>

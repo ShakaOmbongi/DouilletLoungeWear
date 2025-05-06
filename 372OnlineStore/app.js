@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 // Middleware for parsing JSON & URL-encoded data
 app.use(express.urlencoded({ extended: true }));
