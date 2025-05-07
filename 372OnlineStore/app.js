@@ -1,17 +1,16 @@
 const path = require('path');
 const express = require('express');
-const app = express();
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
 
-// Middleware for parsing JSON & URL-encoded data
+const app = express();
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Serve static assets (CSS, JS, images)
+// Serve static assets
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// Define Routes for Public View Pages
+// Public View Pages
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
@@ -32,48 +31,31 @@ app.get('/products/details', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'productDetails.html'));
 });
 
-// Sign Up page
+// User Auth Pages
 app.get('/users/signup', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'signup.html'));
 });
 
-// Login page
 app.get('/users/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
-// Admin Pages 
-app.get('/admin/upload', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'admin-upload.html'));
-});
-
-app.get('/admin/products', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'admin-products.html'));
-});
-
-app.get('/admin/edit-product', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'product-edit.html'));
-});
-
-app.get('/admin/edit', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'admin-edit.html'));
-});
-
-//  Import API Routes (For Future Backend Functionality)
+// Route Imports
 const shopRoutes = require('./routes/shop');
-const adminRoutes = require('./routes/admin');
+const adminRoutes = require('./routes/admin'); // Only handles API (not login UI)
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/order');
+const userRoutes = require('./routes/user');
+const middlewareRoutes = require('./routes/middlewareRoute');
 
-// Use API Routes
+// Route Usage
 app.use('/shop', shopRoutes);
-app.use('/admin', adminRoutes);
+app.use('/admin', middlewareRoutes); // handles login + protected views
+app.use('/admin', adminRoutes);      // handles admin product API
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
-const userRoutes = require('./routes/user');
 app.use('/users', userRoutes);
 
-
-// Start the Server
+// Start Server
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

@@ -9,7 +9,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin - Manage Products</title>
-  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
 </head>
 <body>
   <!-- Admin Navbar -->
@@ -25,7 +25,7 @@
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main class="container">
     <h1>Product Management</h1>
     <button class="btn" onclick="location.href='/admin/edit'">+ Add New Product</button>
 
@@ -36,13 +36,60 @@
           <th>Name</th>
           <th>Description</th>
           <th>Category</th>
-          <th>Image Path</th>
+          <th>Image</th>
           <th>Price</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="product-list">
-        <!-- Product rows will be injected via fetchadmindisplay.js -->
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Cozy Sweatpants</td>
+          <td>Perfect for lounging</td>
+          <td>Apparel</td>
+          <td><img src="/assets/images/sweatpants.jpeg" alt="Cozy Sweatpants" width="50"></td>
+          <td>$39.99</td>
+          <td>
+            <a href="/admin/edit?id=1" class="btn btn-sm btn-primary">Edit</a>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Relaxed Hoodie</td>
+          <td>Warm and cozy</td>
+          <td>Apparel</td>
+          <td><img src="/assets/images/hoodie.jpeg" alt="Relaxed Hoodie" width="50"></td>
+          <td>$49.99</td>
+          <td>
+            <a href="/admin/edit?id=2" class="btn btn-sm btn-primary">Edit</a>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Comfortable T-Shirt</td>
+          <td>Lightweight and breathable</td>
+          <td>Apparel</td>
+          <td><img src="/assets/images/t-shirt.jpeg" alt="Comfortable T-Shirt" width="50"></td>
+          <td>$29.99</td>
+          <td>
+            <a href="/admin/edit?id=3" class="btn btn-sm btn-primary">Edit</a>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Soft Lounge Pants</td>
+          <td>Relaxation-ready pants</td>
+          <td>Apparel</td>
+          <td><img src="/assets/images/pants.jpeg" alt="Soft Lounge Pants" width="50"></td>
+          <td>$44.99</td>
+          <td>
+            <a href="/admin/edit?id=4" class="btn btn-sm btn-primary">Edit</a>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </main>
@@ -52,18 +99,12 @@
     <p>&copy; 2025 Douillet Lounge Wear Admin</p>
   </footer>
 
-  <!-- JS -->
-  <script src="../assets/js/fetchadmindisplay.js"></script>
   <script>
-    // Simple sign-out redirect (can be enhanced later)
-    document.getElementById('sign-out').addEventListener('click', function () {
-      // If you ever add session storage:
-      // localStorage.removeItem("isAdmin");
-
-      window.location.href = "/admin/login";
+    // Dummy sign-out (just go to login page)
+    document.getElementById('sign-out').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = '/admin/login';
     });
   </script>
-  <script src="/assets/js/main.js"></script>
-
 </body>
 </html>

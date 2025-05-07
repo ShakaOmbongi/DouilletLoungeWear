@@ -35,25 +35,8 @@
   <main class="container py-4">
     <h1>Welcome!</h1>
   </main>
-
-  <!-- Script to adjust home link based on user role -->
-  <script>
-    document.addEventListener("DOMContentLoaded", async function () {
-      const homeLink = document.getElementById("home-link");
-      try {
-        const res = await fetch("/users/session-info");
-        const data = await res.json();
-        if (data && data.user_type === "admin") {
-          homeLink.href = "/admin/products";
-        } else {
-          homeLink.href = "/";
-        }
-      } catch (err) {
-        console.warn("Defaulting home link to / due to session check error.");
-        homeLink.href = "/";
-      }
-    });
-  </script>
+  
+  
 
 </body>
 </html>

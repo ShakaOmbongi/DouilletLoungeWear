@@ -1,11 +1,9 @@
 // middleware/requireLogin.js
 module.exports = (req, res, next) => {
-    const sessionToken = req.cookies.sessionToken;
-  
-    if (!sessionToken) {
+    const token = req.cookies.sessionToken;
+    if (!token) {
       return res.redirect('/users/login?error=loginRequired');
     }
-  
     next();
   };
   

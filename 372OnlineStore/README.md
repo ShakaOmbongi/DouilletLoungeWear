@@ -28,6 +28,10 @@ Douillet Lounge Wear is a full-stack Node.js application using SQLite. It simula
 
 ---
 
+## Demo Video
+
+[![Watch the demo](https://img.youtube.com/vi/c1NjClBm6YU/0.jpg)](https://youtu.be/c1NjClBm6YU)
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -39,6 +43,8 @@ cd douillet-lounge-wear
 install
 npm install express sqlite3 multer dotenv
 npm install --save-dev nodemon
+npm install cookie-parser
+
 
 .env
 PORT=3000

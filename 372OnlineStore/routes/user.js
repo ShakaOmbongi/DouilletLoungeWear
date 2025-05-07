@@ -21,6 +21,5 @@ router.post('/logout', (req, res) => {
   res.redirect('/users/login');    // redirect to login
 });
 
-router.get('/session-info', userController.getSessionInfo);
 
 module.exports = router;

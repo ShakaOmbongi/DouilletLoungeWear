@@ -14,13 +14,8 @@ exports.createUser = (req, res) => {
     return res.redirect('/users/login?signup=success');
   });
 };
-exports.getSessionInfo = (req, res) => {
-  const sessionToken = req.cookies.sessionToken;
-  if (!sessionToken) {
-    return res.status(401).json({ message: "Not logged in" });
-  }
 
-};
+
 // LOGIN AND CREATE SESSION
 exports.loginUser = (req, res) => {
   const { email, password } = req.body;
